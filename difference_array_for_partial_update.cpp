@@ -1,3 +1,7 @@
+/*
+use second order difference array to solve partial update with arithmeic sequence
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
