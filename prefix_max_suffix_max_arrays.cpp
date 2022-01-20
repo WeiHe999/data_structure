@@ -38,7 +38,7 @@ int main()
 	print(suf_max);
 	
 	// query: find the max value after excluding the exlements from index 2 to 4 inclusive
-	int lower = 0, upper = 5; 
+	int lower = 1, upper = 3; 
 	cout << "pre-max = " << pre_max[lower] << endl;
 	cout << "suf-max = " << suf_max[upper+1] << endl;
 	int max_v = max(pre_max[lower], suf_max[upper+1]);
