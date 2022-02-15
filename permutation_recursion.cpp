@@ -9,8 +9,7 @@ using namespace std;
 // strings of length k
 
 
-void printAllKLengthRec(char set[], string prefix,
-									int n, int k, int& tot, string g_str)
+void printAllKLengthRec(char set[], string prefix, int n, int k, int& tot, string g_str)
 {
 	
 	// Base case: k is 0,
@@ -52,7 +51,7 @@ int main()
 	char set1[] = {'2', '3'};
 	int k = 5;
 	int tot = 0;
-  string g_str = "33222";
+        string g_str = "33222";
 	printAllKLength(set1, k, 2, tot, g_str);
 	cout << tot << endl;
 	
