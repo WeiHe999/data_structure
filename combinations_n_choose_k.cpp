@@ -1,34 +1,27 @@
+// find all k-element combinations from a n-element vector
 #include <bits/stdc++.h>
 using namespace std;
 
-
-void combinations(vector<int> prefix, int current_ind, int current_len, int tot_len, vector<int> data)
+void combinations(int ind, int k, vector <int> vec1, vector <int> &vec2)
 {
-    if (current_len==tot_len) 
+    if (vec2.size() == k)
     {
-        for (auto x: prefix) cout << x << ", ";
-        cout << endl;
+        for (int a = 0; a < vec2.size() - 1; a++) cout << vec2[a] << ", ";
+        cout << vec2.back() << endl;
+        return;
     }
-    if (current_len>tot_len) return;
-    // add next forward element
-    for(int i=current_ind+1; i<data.size(); i++)
+    for (int x = ind + 1; x < vec1.size(); x++)
     {
-        vector<int> new_prefix = prefix;
-        new_prefix.push_back(data[i]);
-        combinations(new_prefix, i, current_len+1, tot_len, data);
+        vector <int> vec3 = vec2;
+        vec3.emplace_back(vec1[x]);
+        combinations(x, k, vec1, vec3);
     }
 }
 
 int main()
 {
     cin.tie(0); cout.tie(0); cin.sync_with_stdio(0);
-    vector<int> v1 = {1,2, 3, 4, 5};
+    vector <int> vec1 = {1, 2, 3, 4, 5}, vec2;
     int k = 3;
-    for (int i=0; i<v1.size(); i++)
-    {
-        // for the first element
-        vector<int> prefix = {v1[i]};
-        combinations(prefix, i, 1, k, v1);
-    }
-    
+    combinations(-1, k, vec1, vec2);
 }
